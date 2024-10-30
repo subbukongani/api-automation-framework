@@ -11,8 +11,7 @@ This project provides a robust framework for testing RESTful APIs. The framework
 - [Configuration](#configuration)
 - [Running Tests](#running-tests)
 - [Logging and Reporting](#logging-and-reporting)
-- [Contributing](#contributing)
-- [License](#license)
+
 
 ## Getting Started
 
@@ -42,3 +41,33 @@ If Maven is not installed, follow the instructions on the [Maven website](https:
 Use Maven to build the project and download dependencies:
 ```bash
 mvn clean install
+
+## Usage
+This project provides a base framework for running API tests using REST Assured and TestNG. Tests are located in the src/test/java directory.
+
+## Project Structure
+src/main/java: Contains the main Java code, including utility classes for logging, API requests, and configurations.
+src/test/java: Contains TestNG test classes for API testing.
+src/test/resources: Contains configuration files such as config.properties.
+
+## Configuration
+The config.properties file in the src/test/resources directory holds the configuration parameters:
+
+base.url: The base URL for the API
+endpoints: Specific API endpoint paths
+Update these values to match your API's configuration as needed.
+
+## Running Tests
+Running All Tests
+To execute all tests, run:
+mvn test
+Running a Specific Test Class
+You can also run a specific test class using:
+mvn -Dtest=YourTestClass test
+
+## Logging and Reporting
+This framework includes logging for tracking API requests and responses. Logs can be found in the logs directory after running tests. TestNG provides a report in target/surefire-reports, detailing test results.
+
+Log Example
+For each request, details like the request method, URI, headers, and body are logged. Each response logs the status code, headers, and body content, which helps in debugging.
+
