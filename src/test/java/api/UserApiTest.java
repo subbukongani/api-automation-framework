@@ -1,14 +1,13 @@
 package api;
 
 import org.testng.annotations.Test;
-import static org.testng.Assert.assertEquals;
-
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import io.restassured.response.Response; // Import Response from RestAssured
 import services.UserLib; // Import the UserLib service class that interacts with the API
 import java.io.File; // For handling file operations
 import java.io.IOException; // For handling IO exceptions
+import static org.hamcrest.MatcherAssert.assertThat; // For Hamcrest assertions
+import static org.hamcrest.Matchers.equalTo;
 
 /**
  * UserApiTest is a TestNG test class that verifies the functionality of the
@@ -27,11 +26,13 @@ public class UserApiTest {
 	 */
 	@Test
 	public void verifyGetAllPosts() {
+		String expectedTitle = "sunt aut facere repellat provident occaecati excepturi optio reprehenderit";
 		// Call the method that retrieves all posts and returns a JsonNode object
 		JsonNode response = userLib.getAllPosts();
 
 		// Print the response body for debugging
 		System.out.println("Response Body: " + response.toString());
+		assertThat(response.get(0).get("title").asText(), equalTo(expectedTitle));
 	}
 
 	/**
