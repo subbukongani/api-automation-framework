@@ -1,0 +1,16 @@
+# Eclipse/IntelliJ-specific files
+.settings/
+.classpath
+.project
+test-output/
+
+
+# Maven/Gradle target folders and other build outputs
+target/
+build/
+
+# OS-specific files
+.DS_Store
+
+# Any other temporary files
+*.log
